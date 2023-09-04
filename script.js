@@ -1,5 +1,6 @@
 let currentId = "1000";
-const catagoryHandle = async () => {
+const catagoryHandle = async () => 
+{
     const res = await fetch("https://openapi.programming-hero.com/api/videos/categories");
     const data = await res.json();
 
@@ -59,12 +60,12 @@ const sortView = async (categoryid) => {
                 <div class="card-body text-center">
                     <div class="flex justify-left gap-4">
                         <img src="${video.authors[0].profile_picture}" class="rounded-2xl h-8 w-10" />
-                        <h3 class="card-title font-bold "> ${video.title}
+                        <h3 class="card-title font-bold"> ${video.title}
                         </h3>
                     </div>
                 </div>
                 
-                <div class="ml-20 -mt-8 text-left ">
+                <div class="ml-20 -mt-8 text-left">
                     <div class="flex justify-left gap-4 items-center">
                         <p> ${video.authors[0].profile_name} </p>
                         <p class="h-8 w-5"> ${
@@ -82,7 +83,8 @@ const sortView = async (categoryid) => {
     });
 };
 
-const load = async (categoryid) => {
+const load = async (categoryid) => 
+{
     currentId = categoryid;
 
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryid}`);
@@ -111,14 +113,16 @@ const load = async (categoryid) => {
             <img src="${video.thumbnail}" class="rounded-2xl w-[312px] h-[200px]" />
             </figure>
             <div class="card-body text-center">
-                <div class="flex justify-left gap-5  ">
-                    <img src="${video.authors[0].profile_picture}"class="rounded-full w-10 h-10 " />
-                    <h2 class="card-title font-bold "> ${video.title}</h2>
+                <div class="flex justify-left gap-4">
+                    <img src="${video.authors[0].profile_picture}"class="rounded-full w-10 h-10" />
+
+                    <h2 class="card-title font-bold"> ${video.title}</h2>
                 </div>
             
             </div>
             <div class="text-left ml-24 -mt-8">
-                <div class="flex gap-2 justify-left items-center">
+
+                <div class="flex gap-4 justify-left items-center">
                     <p> ${video.authors[0].profile_name} </p>
                     <p class="h-7 w-7"> ${video.authors[0]?.verified ? `<img src="./verifyPic.png">` : ' '}  </p>
                 </div>
@@ -133,10 +137,11 @@ const load = async (categoryid) => {
 
 };
 
-const sortButton = document.getElementById("sort");
+const sBtn = document.getElementById("sort");
 
 
-    sortButton.addEventListener("click", () => 
+    sBtn.addEventListener("click", () => 
+    
     {
     
    sortView(currentId);
@@ -144,5 +149,6 @@ const sortButton = document.getElementById("sort");
 );
 
 catagoryHandle();
+
 load(currentId);
 
